@@ -273,3 +273,27 @@
 // Writable - if true, the value of the property can be changed, otherwise not 
 // Value - the value of the property 
 
+// let descriptor = Object.getOwnPropertyDescriptor(Math, 'PI')
+// console.log(descriptor) // { value:3.14...., writable:false, enumerable:false, configurable:false}
+
+// Object.defineProperty(reactObj, 'name', {
+//     writable: false,
+//     configurable: false,
+//     enumerable: false
+// })
+
+//--------------------------------Freezing and Sealing Properties from Objects------------------------------------//
+// Sealing - Prevents properties from being added or removed. Can still be changed.
+// Freezing - Prevents properties from being added, removed or changed.
+
+const reactObj = {
+    name: "Rectangle 1",
+    width: 10,
+    height: 10
+}
+
+Object.seal(reactObj)
+
+let descriptor = Object.getOwnPropertyDescriptor(reactObj);
+
+console.log(descriptor)// height, width, name : configurable: false, enumerable: true, writable: true
